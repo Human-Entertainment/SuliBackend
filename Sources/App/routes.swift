@@ -9,6 +9,7 @@ func routes(_ app: Application) throws
         allowedHeaders: [.accept, .authorization, .contentType, .origin, .xRequestedWith, .userAgent, .accessControlAllowOrigin]
     )
     let cors = CORSMiddleware(configuration: corsConfiguration)
+    
     app.middleware.use(cors)
     let registration = app.grouped("registration")
     try registration.register(collection: Registrations())
